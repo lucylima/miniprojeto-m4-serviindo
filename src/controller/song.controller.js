@@ -157,9 +157,9 @@ const song = [
     genre: "Rock",
   },
 ];
+const random = Math.floor(Math.random() * song.length)
 
 const randomSong = () => {
-  const random = Math.floor(Math.random() * song.length);
   const response = song[random];
   return response;
 };
@@ -167,7 +167,6 @@ const randomSong = () => {
 const showSomeSongs = (number) => {
   let list = [];
   for (let index = 0; index < number; index++) {
-    const random = Math.floor(Math.random() * song.length);
     list.push(song[random]);
   }
   const response = list;
@@ -180,4 +179,10 @@ const createSong = (title, artist, album, genre) => {
   return newSong;
 };
 
-export { randomSong, showSomeSongs, createSong };
+const deleteSong = (id) => {
+  let songIndex = song.findIndex(song => song.id == id);
+  song.splice(songIndex, 1);
+  return artistExist
+};
+
+export { randomSong, showSomeSongs, createSong, deleteSong };

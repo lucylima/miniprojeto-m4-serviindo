@@ -18,8 +18,9 @@ const albums = [
   }
 ]
 
+const random = Math.floor(Math.random() * albums.length)
+
 const randomAlbum = () => {
-  const random = Math.floor(Math.random() * albums.length)
   const response = albums[random]
   return response
 }
@@ -27,7 +28,6 @@ const randomAlbum = () => {
 const showSomeAlbums = (number) => {
   let list = [];
   for (let index = 0; index < number; index++) {
-    const random = Math.floor(Math.random() * albums.length);
     list.push(albums[random]);
   }
   const response = list;
@@ -40,4 +40,11 @@ const createAlbum = (title, artist, release, genre) => {
   return newAlbum
 };
 
-export { randomAlbum, showSomeAlbums, createAlbum }
+const deleteAlbum = (id) => {
+  let albumIndex = albums.findIndex(album => album.id == id);
+  const deletedAlbum = albums.find(album => album.id == id)
+  albums.splice(albumIndex, 1);
+  return deletedAlbum
+};
+
+export { randomAlbum, showSomeAlbums, createAlbum, deleteAlbum }

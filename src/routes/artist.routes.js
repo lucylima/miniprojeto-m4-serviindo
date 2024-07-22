@@ -22,8 +22,8 @@ artistRouter.post("/artist", (req,res) => {
 
 artistRouter.delete("/artist/:id", (req,res) => {
   const { id } = req.params
-  const delet = deleteArtist(id)
-  res.status(200).json({ delet })
+  const deletedArtist = deleteArtist(id)
+  res.status(200).json({ deletedArtist })
 })
 
 export { artistRouter }

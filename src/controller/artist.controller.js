@@ -50,9 +50,9 @@ const artists = [
     artist: "Amaarae",
   },
 ];
+const random = Math.floor(Math.random() * artists.length)
 
 const randomArtist = () => {
-  const random = Math.floor(Math.random() * artists.length);
   const response = artists[random];
   return response;
 };
@@ -60,7 +60,6 @@ const randomArtist = () => {
 const showSomeArtists = (number) => {
   let list = [];
   for (let index = 0; index < number; index++) {
-    const random = Math.floor(Math.random() * artists.length);
     list.push(artists[random]);
   }
   const response = list;
@@ -74,9 +73,10 @@ const createArtist = (artist) => {
 };
 
 const deleteArtist = (id) => {
-  let artistIndex = artists.findIndex((artist) => artist.id == id);
+  const artistIndex = artists.findIndex(artist => artist.id == id);
+  const deletedArtist = artists.find(artist => artist.id == id)
   artists.splice(artistIndex, 1);
-  return artistExist
+  return deletedArtist
 };
 
 export { randomArtist, showSomeArtists, createArtist, deleteArtist };
