@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { randomArtist, showSomeArtists, createArtist } from '../controller/artist.controller.js'
+import { randomArtist, showSomeArtists, createArtist, deleteArtist } from '../controller/artist.controller.js'
 
 const artistRouter = Router()
 
@@ -18,6 +18,12 @@ artistRouter.post("/artist", (req,res) => {
   const { name } = req.body 
   const newArtist = createArtist(name)
   res.status(200).json({ newArtist })
+})
+
+artistRouter.delete("/artist/:id", (req,res) => {
+  const { id } = req.params
+  const delet = deleteArtist(id)
+  res.status(200).json({ delet })
 })
 
 export { artistRouter }

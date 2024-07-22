@@ -1,23 +1,60 @@
-import { Artist } from "../model/Artist.model.js"
+import { Artist } from "../model/Artist.model.js";
+import { v4 as uuidv4 } from "uuid";
 const artists = [
-  "7038634357",
-  "lucy eris",
-  "Caroline Polachek",
-  "Mitski",
-  "Malibu",
-  "Ecco2k",
-  "Bladee",
-  "Chico Buarque",
-  "Yeule",
-  "Lady Gaga",
-  "Melanie Martinez",
-  "Amaarae",
+  {
+    id: uuidv4(),
+    artist: "7038634357",
+  },
+  {
+    id: uuidv4(),
+    artist: "lucy eris",
+  },
+  {
+    id: uuidv4(),
+    artist: "Caroline Polachek",
+  },
+  {
+    id: uuidv4(),
+    artist: "Mitski",
+  },
+  {
+    id: uuidv4(),
+    artist: "Malibu",
+  },
+  {
+    id: uuidv4(),
+    artist: "Ecco2k",
+  },
+  {
+    id: uuidv4(),
+    artist: "Bladee",
+  },
+  {
+    id: uuidv4(),
+    artist: "Chico Buarque",
+  },
+  {
+    id: uuidv4(),
+    artist: "Yeule",
+  },
+  {
+    id: uuidv4(),
+    artist: "Lady Gaga",
+  },
+  {
+    id: uuidv4(),
+    artist: "Melanie Martinez",
+  },
+  {
+    id: uuidv4(),
+    artist: "Amaarae",
+  },
 ];
 
 const randomArtist = () => {
   const random = Math.floor(Math.random() * artists.length);
   const response = artists[random];
-  return response 
+  return response;
 };
 
 const showSomeArtists = (number) => {
@@ -36,4 +73,10 @@ const createArtist = (artist) => {
   return newArtist;
 };
 
-export { randomArtist, showSomeArtists, createArtist };
+const deleteArtist = (id) => {
+  let artistIndex = artists.findIndex((artist) => artist.id == id);
+  artists.splice(artistIndex, 1);
+  return artistExist
+};
+
+export { randomArtist, showSomeArtists, createArtist, deleteArtist };
