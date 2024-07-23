@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { randomSong, showSomeSongs, createSong } from '../controller/song.controller.js'
+import { randomSong, showSomeSongs, createSong, deleteSong } from '../controller/song.controller.js'
 
 const songRouter = Router()
 
@@ -18,6 +18,12 @@ songRouter.post("/songs", (req,res) => {
   const { title, artist, album, genre } = req.body 
   const newSong = createSong(title, artist, album, genre)
   res.status(200).json({ newSong })
+})
+
+songRouter.delete("/song/:id", (req,res) => {
+  const { id } = req.params
+  const deletedSong = deleteSong(id)
+  res.status(200).json({ deletedSong })
 })
 
 export { songRouter }

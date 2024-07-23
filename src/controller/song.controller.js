@@ -182,8 +182,9 @@ const createSong = (title, artist, album, genre) => {
 
 const deleteSong = (id) => {
   let songIndex = song.findIndex(song => song.id == id);
+  const deletedSong = song.find(song => song.id == id)
   song.splice(songIndex, 1);
-  return artistExist
+  return deletedSong
 };
 
 export { randomSong, showSomeSongs, createSong, deleteSong };
