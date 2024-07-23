@@ -18,9 +18,9 @@ const albums = [
   }
 ]
 
-const random = Math.floor(Math.random() * albums.length)
 
 const randomAlbum = () => {
+  const random = Math.floor(Math.random() * albums.length)
   const response = albums[random]
   return response
 }
@@ -28,6 +28,7 @@ const randomAlbum = () => {
 const showSomeAlbums = (number) => {
   let list = [];
   for (let index = 0; index < number; index++) {
+    const random = Math.floor(Math.random() * albums.length)
     list.push(albums[random]);
   }
   const response = list;

@@ -157,9 +157,9 @@ const song = [
     genre: "Rock",
   },
 ];
-const random = Math.floor(Math.random() * song.length)
 
 const randomSong = () => {
+  const random = Math.floor(Math.random() * song.length)
   const response = song[random];
   return response;
 };
@@ -167,6 +167,7 @@ const randomSong = () => {
 const showSomeSongs = (number) => {
   let list = [];
   for (let index = 0; index < number; index++) {
+    const random = Math.floor(Math.random() * song.length)
     list.push(song[random]);
   }
   const response = list;
